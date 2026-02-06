@@ -4,7 +4,6 @@ import pandas as pd
 import numpy as np
 import joblib
 
-
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 model = joblib.load(os.path.join(BASE_DIR, "loan_approval_model.pkl"))
@@ -58,6 +57,7 @@ coef_df = pd.DataFrame({
 st.dataframe(coef_df)
 
 st.caption("Odds Ratio > 1 increases approval likelihood, < 1 decreases it.")
+
 
 
 

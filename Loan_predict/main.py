@@ -3,8 +3,10 @@ import pandas as pd
 import numpy as np
 import joblib
 
-model = joblib.load("loan_approval_model.pkl")
-features = joblib.load("features.pkl")
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+model = joblib.load(os.path.join(BASE_DIR, "loan_approval_model.pkl"))
+features = joblib.load(os.path.join(BASE_DIR, "features.pkl"))
 
 st.set_page_config(page_title="Loan Approval Predictor", layout="centered")
 
@@ -54,3 +56,4 @@ coef_df = pd.DataFrame({
 st.dataframe(coef_df)
 
 st.caption("Odds Ratio > 1 increases approval likelihood, < 1 decreases it.")
+
